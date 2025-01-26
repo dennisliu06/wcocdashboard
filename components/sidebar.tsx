@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React, { JSX, ReactNode } from "react";
 import {
   Box,
   Flex,
@@ -35,12 +35,14 @@ const LinkItems: LinkItemProps[] = [
   { name: "Profile Settings", icon: FiSettings, href: "settings"}
 ];
 
-export default function SimpleSidebar() {
+export default function SimpleSidebar({children}: Readonly<{
+    children: React.ReactNode;
+  }>) {
   return (
     <Box minH="100vh" bg="gray.100">
       <SidebarContent />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <DashboardContents />
+        {children}
       </Box>
     </Box>
   );
