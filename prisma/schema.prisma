@@ -10,9 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Company {
   id           String   @id @default(cuid())
-  name         String
+  name         String   @unique
   industry     String?
   website      String?
   email        String?
